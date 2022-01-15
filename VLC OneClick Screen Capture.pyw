@@ -3,6 +3,7 @@ from tkinter import *
 from tkinter import ttk
 from tkinter import filedialog
 from tkinter import messagebox 
+from datetime import datetime
 
 
 gui = Tk()
@@ -15,7 +16,7 @@ def getFolderPath():
     folderPath.set(folder_selected)
 
 def GO():
-    
+    start_time = datetime.now()
     folder = folderPath.get()
    
     if folder == '':
@@ -23,7 +24,8 @@ def GO():
    
     else:
         os.system('cmd /c ""C:/Program Files/VideoLAN/VLC/vlc.exe" screen:// --qt-start-minimized :screen-fps=25 :run-time=30 :quiet :sout=#transcode{vcodec=h264,vb072}:standard{access=file,mux=mp4,dst='+folder+'}"')
-
+        end_time = datetime.now()
+        messagebox.showerror(title="Done", message=('Duration: {}'.format(end_time - start_time)))
 def ABOUT():
     messagebox.showinfo("ALU DEV TEAM @ 2022", "by nikkpap (nikkpap@gmail.com)")
 
