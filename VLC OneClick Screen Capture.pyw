@@ -25,7 +25,7 @@ def GO():
     else:
         os.system('cmd /c ""C:/Program Files/VideoLAN/VLC/vlc.exe" screen:// --qt-start-minimized :screen-fps=25 :run-time=9999 :quiet :sout=#transcode{vcodec=h264,vb072}:standard{access=file,mux=mp4,dst='+folder+'}"')
         end_time = datetime.now()
-        messagebox.showerror(title="Done", message=('Duration: {}'.format(end_time - start_time)))
+        messagebox.showinfo(title="Done", message=('Duration: {}'.format(end_time - start_time)))
 def ABOUT():
     messagebox.showinfo("ALU DEV TEAM @ 2022", "by nikkpap (nikkpap@gmail.com)")
 
